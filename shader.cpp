@@ -5,8 +5,8 @@
 Shader::Shader(const std::string& fileName){
 	
 	_prog = glCreateProgram();
-	_shaders[0] = GenShader(LoadShader(fileName + "vsh"), GL_VERTEX_SHADER); //Vertex Shader
-	_shaders[1] = GenShader(LoadShader(fileName + "fsh"), GL_FRAGMENT_SHADER); //Fragment Shader
+	_shaders[0] = GenShader(LoadShader(fileName + ".vsh"), GL_VERTEX_SHADER); //Vertex Shader
+	_shaders[1] = GenShader(LoadShader(fileName + ".fsh"), GL_FRAGMENT_SHADER); //Fragment Shader
 	
 	for(size_t i = 0; i < _NUM_SHADERS; i++){
 		glAttachShader(_prog, _shaders[i]);

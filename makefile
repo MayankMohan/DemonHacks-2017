@@ -3,13 +3,19 @@ ifeq ($(OS),Windows_NT)
 ext=.exe
 LF=-lmingw32 -lSDL2main -lSDL2 -lglew32 -lOpenGL32 
 LIB=-Llib
-OPATH=obj/
+OPATH=obj
+RM=del /f
+RMDIR=rd /s /q
+MD=md
 
 else
 #Linux (Probably)
 ext=.out
 LF=-lGL -lGLEW -lSDL2
-OPATH=lobj/
+OPATH=lobj
+RM=rm
+RMDIR=rm -rf
+MD=mkdir
 
 endif
 
@@ -25,18 +31,24 @@ HEAD=display.h shader.h mesh.h
 OBJ=main.o display.o shader.o mesh.o
 INCLUDE=include
 
-CF=-Wall
+CF=-Wall -g
 
-all: bin $(OPATH) $(patsubst %.o, $(OPATH)%.o, $(OBJ))
-	$(CC) -o bin/$(name)$(ext) $(patsubst %.o, $(OPATH)%.o, $(OBJ)) $(LIB) $(LF)
+################             Recipes                ###############################
+
+all: bin $(OPATH) $(patsubst %.o, $(OPATH)/%.o, $(OBJ))
+	$(CC) -o bin/$(name)$(ext) $(patsubst %.o, $(OPATH)/%.o, $(OBJ)) $(LIB) $(LF)
 
 bin:
-	mkdir bin
+	$(MD) bin
 	
 $(OPATH):
-	mkdir $(OPATH)
+	$(MD) $(OPATH)
 	
-$(OPATH)%.o:%.cpp $(HEAD)
+$(OPATH)/%.o:%.cpp $(HEAD)
 	$(CC) -c -o $@ $< $(CF) -I$(INCLUDE)
+	
+clean:
+	$(RMDIR) bin
+	$(RMDIR) $(OPATH)
 
 	

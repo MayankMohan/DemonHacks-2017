@@ -2,6 +2,7 @@
 #include <cstring>
 #include <GL/glew.h>
 #include "display.h"
+#include "shader.h"
 #include "mesh.h"
 
 int main(int argc, char **argv){
@@ -34,12 +35,16 @@ int main(int argc, char **argv){
 							Vertex(glm::vec3(1, -1, 0))
 	};
 	
+	
 	Mesh mesh(vertices, sizeof(vertices) / sizeof(vertices[0]));
+	
+	Shader shad("./resource/shad");
 	
 	while(d.Running()){
 		d.Clear(test);
 		if(d.FrameReady()){
 			test -= 0.01;
+			shad.Bind();
 			mesh.Draw();
 			d.Update();
 		}

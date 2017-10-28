@@ -5,7 +5,9 @@
 
 class Vertex{
 	public:
-		Vertex(const glm::vec3 &pos){_pos = pos;}
+		Vertex(const glm::vec3 &pos){
+			_pos = pos;
+		}
 		
 	private:
 		glm::vec3 _pos;
