@@ -27,8 +27,8 @@ endif
 CC=g++
 name=space
 
-HEAD=display.h shader.h mesh.h
-OBJ=main.o display.o shader.o mesh.o
+HEAD=display.h shader.h mesh.h modelParser.h
+OBJ=main.o display.o shader.o mesh.o modelParser.o
 INCLUDE=include
 
 CF=-Wall -g
@@ -36,7 +36,7 @@ CF=-Wall -g
 ################             Recipes                ###############################
 
 all: bin $(OPATH) $(patsubst %.o, $(OPATH)/%.o, $(OBJ))
-	$(CC) -o bin/$(name)$(ext) $(patsubst %.o, $(OPATH)/%.o, $(OBJ)) $(LIB) $(LF)
+	$(CC) -o bin/$(name)$(ext) $(patsubst %.o, $(OPATH)/%.o, $(OBJ)) $(LIB) $(CF) $(LF)
 
 bin:
 	$(MD) bin

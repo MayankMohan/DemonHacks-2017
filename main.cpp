@@ -1,9 +1,13 @@
 #include <cstdio>
 #include <cstring>
+
 #include <GL/glew.h>
+
 #include "display.h"
 #include "shader.h"
 #include "mesh.h"
+#include "modelParser.h"
+
 
 int main(int argc, char **argv){
 	//Attribute setup
@@ -30,13 +34,16 @@ int main(int argc, char **argv){
 	}
 	
 	
-	Vertex vertices[] = {	Vertex(glm::vec3(-1, -1, 0)),
-							Vertex(glm::vec3(0, 1, 0)),
-							Vertex(glm::vec3(1, -1, 0))
-	};
+	Vertex* vertices;
+	int numverts = parseOBJ("./resource/ship.obj", &vertices);
+	if(numverts == 0){
+		printf("Unable to parse OBJ file\nPress any key to continue...");
+		getchar();
+		return 1;
+	}
 	
 	
-	Mesh mesh(vertices, sizeof(vertices) / sizeof(vertices[0]));
+	Mesh mesh(vertices, numverts);
 	
 	Shader shad("./resource/shad");
 	

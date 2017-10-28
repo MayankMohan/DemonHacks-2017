@@ -5,7 +5,11 @@
 
 class Vertex{
 	public:
+		Vertex(){}
 		Vertex(const glm::vec3 &pos){
+			_pos = pos;
+		}
+		void set(const glm::vec3 &pos){
 			_pos = pos;
 		}
 		
