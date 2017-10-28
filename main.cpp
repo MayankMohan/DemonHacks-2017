@@ -35,7 +35,8 @@ int main(int argc, char **argv){
 	
 	
 	Vertex* vertices;
-	int numverts = parseOBJ("./resource/ship.obj", &vertices);
+	int numverts = parseOBJ("./resource/f1ship.obj", &vertices);
+	printf("numvert: %d", numverts);
 	if(numverts == 0){
 		printf("Unable to parse OBJ file\nPress any key to continue...");
 		getchar();
