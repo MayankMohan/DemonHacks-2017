@@ -1,0 +1,83 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_MOD_BY	Bostjan Mihoric	/ccompletion@gmail.com/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	/unofficial modification/
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	/unofficial modification/
+Bind	shader.cpp	33;"	function	class:Shader
+Bind	shader.h	12;"	prototype	class:Shader
+CheckShaderError	shader.cpp	82;"	function	class:Shader
+CheckShaderError	shader.h	16;"	prototype	class:Shader
+Clear	display.cpp	47;"	function	class:Display
+Clear	display.h	13;"	prototype	class:Display
+Clear	main.cpp	39;"	prototype	file:
+DISP_FPS_UNCAP	display.h	20;"	enumerator	enum:Display::DISP_OPT
+DISP_OPT	display.h	19;"	enum	class:Display
+Display	display.cpp	5;"	function	class:Display
+Display	display.h	5;"	class
+Display	display.h	7;"	prototype	class:Display
+Draw	main.cpp	42;"	prototype	file:
+Draw	mesh.cpp	23;"	function	class:Mesh
+Draw	mesh.h	19;"	prototype	class:Mesh
+FrameReady	display.cpp	32;"	function	class:Display
+FrameReady	display.h	11;"	prototype	class:Display
+GenShader	shader.cpp	37;"	function	class:Shader
+GenShader	shader.h	13;"	prototype	class:Shader
+LoadShader	shader.cpp	59;"	function	class:Shader
+LoadShader	shader.h	15;"	prototype	class:Shader
+Mesh	mesh.cpp	3;"	function	class:Mesh
+Mesh	mesh.h	14;"	class
+Mesh	mesh.h	16;"	prototype	class:Mesh
+Opt_Chk	display.h	17;"	function	class:Display
+Opt_Get	display.h	16;"	function	class:Display
+Opt_Set	display.h	15;"	function	class:Display
+Opt_Set	main.cpp	25;"	prototype	file:
+Running	display.h	10;"	function	class:Display
+Shader	shader.cpp	5;"	function	class:Shader
+Shader	shader.h	7;"	class
+Shader	shader.h	9;"	prototype	class:Shader
+Update	display.cpp	52;"	function	class:Display
+Update	display.h	12;"	prototype	class:Display
+Update	main.cpp	43;"	prototype	file:
+Vertex	mesh.h	6;"	class
+Vertex	mesh.h	8;"	function	class:Vertex
+_BUF_POS	mesh.h	23;"	enumerator	enum:Mesh::__anon1
+_NUM_BUFFERS	mesh.h	25;"	enumerator	enum:Mesh::__anon1
+_NUM_SHADERS	shader.h	18;"	member	class:Shader
+_context	display.h	24;"	member	class:Display
+_drawq	mesh.h	31;"	member	class:Mesh
+_frameCap	display.h	27;"	member	class:Display
+_lastTick	display.h	28;"	member	class:Display
+_minDelay	display.h	29;"	member	class:Display
+_opt	display.h	32;"	member	class:Display
+_pos	mesh.h	11;"	member	class:Vertex
+_prog	shader.h	19;"	member	class:Shader
+_running	display.h	25;"	member	class:Display
+_shaders	shader.h	20;"	member	class:Shader
+_vertexArray	mesh.h	28;"	member	class:Mesh
+_vertexBuffers	mesh.h	29;"	member	class:Mesh
+_window	display.h	23;"	member	class:Display
+curtime	display.cpp	33;"	local
+e	display.cpp	54;"	local
+error	shader.cpp	84;"	local
+file	shader.cpp	60;"	local
+line	shader.cpp	64;"	local
+main	main.cpp	6;"	function
+mesh	main.cpp	36;"	prototype	file:
+open	shader.cpp	61;"	prototype	file:
+output	shader.cpp	63;"	local
+shader	shader.cpp	38;"	local
+shaderSource	shader.cpp	43;"	local
+shaderSourceLengths	shader.cpp	44;"	local
+status	display.cpp	13;"	local
+success	shader.cpp	83;"	local
+test	main.cpp	18;"	local
+vertices	main.cpp	31;"	local
+~Display	display.cpp	27;"	function	class:Display
+~Display	display.h	8;"	prototype	class:Display
+~Display	main.cpp	47;"	prototype	file:
+~Mesh	mesh.cpp	19;"	function	class:Mesh
+~Mesh	mesh.h	17;"	prototype	class:Mesh
+~Shader	shader.cpp	23;"	function	class:Shader
+~Shader	shader.h	10;"	prototype	class:Shader
