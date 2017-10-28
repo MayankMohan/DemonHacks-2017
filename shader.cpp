@@ -1,6 +1,6 @@
-#include "shader.h"
-
 #include <fstream>
+
+#include "shader.h"
 
 Shader::Shader(const std::string& fileName){
 	
@@ -18,6 +18,8 @@ Shader::Shader(const std::string& fileName){
 	CheckShaderError(_prog, GL_LINK_STATUS, true, "Error: Shaders Failed to Link");
 	glValidateProgram(_prog);
 	CheckShaderError(_prog, GL_VALIDATE_STATUS, true, "Error: Shaders are Invalid");
+	
+	_unis[_UNI_TRANSFORM] = glGetUniformLocation(_prog, "MVP");
 }
 
 Shader::~Shader(){
@@ -28,6 +30,11 @@ Shader::~Shader(){
 	
 	glDeleteProgram(_prog);
 	
+}
+
+void Shader::Update(const Transform &trans, const Camera &cam){
+	glm::mat4 model = cam.getViewProjection() * trans.getModel();
+	glUniformMatrix4fv(_unis[_UNI_TRANSFORM], 1, GL_FALSE, &model[0][0]);
 }
 
 void Shader::Bind(){

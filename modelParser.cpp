@@ -38,25 +38,22 @@ int parseOBJ(const char* f, Vertex** verts){
 			unsigned int vertexIndex[4];
 			int matches = fscanf(file, "%u %u %u %u\n", &vertexIndex[0], &vertexIndex[1], &vertexIndex[2], &vertexIndex[3]);
 			
-			if(matches == 4){
+			//if(matches == 4){
 				for(int i = 0; i < matches; i++){
 					printf("%d ", vertexIndex[i]);
+					printf("%d ", vertexIndex[(i + 1) % matches]);
 					//if(mappings.count(glm::vec2(vertexIndex[i], vertexIndex[(i + 1) % matches])) == 0){
 					vertexIndices.push_back(vertexIndex[i]);
+					vertexIndices.push_back(vertexIndex[(i + 1) % matches]);
 					//mappings.insert(std::pair<glm::vec2, bool>(glm::vec2(vertexIndex[i], vertexIndex[(i + 1) % matches]), true));
 					//mappings.insert (std::pair<glm::vec2, bool>(glm::vec2(vertexIndex[(i + 1) % matches], vertexIndex[i]), true));
 					//}
 				
 				}
 				printf("\n");
-				printf("%lu\n---------", vertexIndices.size());
-				getchar();
-			}
+			//}
 		}
 	}
-	
-	printf("%lu\n---------", vertexIndices.size());
-	getchar();
 	
 	*verts = new Vertex[vertexIndices.size()];
 	for(unsigned int i = 0; i < vertexIndices.size(); i++){
@@ -64,11 +61,6 @@ int parseOBJ(const char* f, Vertex** verts){
 		printf("%f %f %f\n",temp_vertices[vertexIndices[i] - 1].x,temp_vertices[vertexIndices[i] - 1].y,temp_vertices[vertexIndices[i] - 1].z);
 	}
 	
-	
-	printf("%lu\n---------", vertexIndices.size());
-	getchar();
-	
 	fclose(file);
-	
 	return vertexIndices.size();
 }

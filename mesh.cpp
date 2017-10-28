@@ -28,7 +28,7 @@ Mesh::~Mesh(){
 void Mesh::Draw(){
 	glBindVertexArray(_vertexArray);
 	
-	glDrawArrays(GL_QUADS, 0, _drawq);
+	glDrawArrays(GL_LINES, 0, _drawq);
 	
 	glBindVertexArray(0);
 }
