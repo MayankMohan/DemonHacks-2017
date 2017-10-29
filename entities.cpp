@@ -1,6 +1,6 @@
 # include <cmath>
 # include <cstdio>
-# include <entities.h>
+# include "entities.h"
 
 
 
@@ -8,24 +8,37 @@
 Player::Player(){
   lives = 3;
   score = 0;
+  
+}
+Enemy::Enemy(){
+  hp=5;
+  //this one could be removed
+  spawn_count=25;
+
+
+}
+void Player::addScore(int i){
+score+=i;
 }
 
 void Player::damage(){
-Player lives-=1
-  
+lives-=1;
 }
 
 void Enemy::damage(){
-Enemy hp-=1
+hp-=1;
 }
+
 bool Enemy::alive(){
 if (hp<=0){
   return false;
 }
 return true;
-}
+};
 
-bool player_die(Player lives){
-
+bool Player::alive(){
+if (lives<=0){
 return false;
+}
+return true;
 };
