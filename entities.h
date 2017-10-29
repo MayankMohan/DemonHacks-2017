@@ -2,37 +2,38 @@
 
 #include <glm/glm.hpp>
 
+#include "transform.h"
+#include "mesh.h"
 
 class Entity{
 	protected:
-		glm::vec3 position;
-		glm::vec3 direction;
-		double size;
-    double min_size;
-    double max_size;
+		Mesh* mesh;
+		
 	public:
-    bool hit();
+		Entity(){};
+		Transform* getTrans(){return mesh->getTrans();};
+		bool hit();
+		void draw();
+		virtual void damage() = 0;
 };
 
 class Player:public Entity{
 	private:
 		int lives;
 		int score;
-  public:
-    Player();
-    void addScore(int i);
-    void damage();
-    bool alive();
+	public:
+		Player(Mesh* m);
+		void addScore(int i);
+		void damage();
 };
 
 class Enemy: public Entity{
-  private:
-    int hp;
-    int spawn_count;
-  public:
-    Enemy();
-    void damage();
-    bool alive();
+	private:
+		int hp;
+	public:
+		Enemy(Mesh* m);
+		void damage();
+		bool alive();
 };
 	//assert certain positions to other entities; think using random
 

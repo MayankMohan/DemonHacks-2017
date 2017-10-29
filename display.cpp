@@ -32,12 +32,12 @@ Display::~Display(){
 bool Display::FrameReady(){
 	Uint32 curtime = SDL_GetTicks();
 	if(Opt_Chk(DISP_FPS_UNCAP)){
-		printf("%u\n", (curtime - _lastTick));
+		//printf("%u\n", (curtime - _lastTick));
 		_lastTick = curtime;
 		return true;
 	}
 	if(SDL_TICKS_PASSED(curtime, _lastTick + _minDelay)){
-		printf("%u\n", (curtime - _lastTick));
+		//printf("%u\n", (curtime - _lastTick));
 		_lastTick = curtime;
 		return true;
 	}

@@ -28,7 +28,7 @@ CC=g++
 name=space
 
 HEAD=display.h shader.h mesh.h modelParser.h
-OBJ=main.o display.o shader.o mesh.o modelParser.o
+OBJ=main.o display.o shader.o mesh.o modelParser.o entities.o
 INCLUDE=include
 
 CF=-Wall -g

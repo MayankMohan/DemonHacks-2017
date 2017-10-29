@@ -3,7 +3,11 @@
 #include <glm/glm.hpp>
 #include <GL/glew.h>
 
+#include "transform.h"
+#include "shader.h"
+
 class Vertex{
+	friend class Mesh;
 	public:
 		Vertex(){}
 		Vertex(const glm::vec3 &pos){
@@ -15,15 +19,21 @@ class Vertex{
 		
 	private:
 		glm::vec3 _pos;
+		
 };
 
 class Mesh{
 	public:
-		Mesh(Vertex* verts, size_t numverts);
+		Mesh(){};
+		Mesh(Mesh* m);
+		Mesh(Transform* trans, Vertex* verts, size_t numverts);
 		~Mesh();
+		
+		Transform* getTrans(){return _trans;};
 		
 		void Draw();
 	private:
+		Transform* _trans;
 		
 		enum{
 			_BUF_POS,

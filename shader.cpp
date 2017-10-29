@@ -32,9 +32,12 @@ Shader::~Shader(){
 	
 }
 
-void Shader::Update(const Transform &trans, const Camera &cam){
-	glm::mat4 model = cam.getViewProjection() * trans.getModel();
-	glUniformMatrix4fv(_unis[_UNI_TRANSFORM], 1, GL_FALSE, &model[0][0]);
+void Shader::Update(const Transform *trans, const Camera &cam){
+	//glm::mat4 model = cam.getViewProjection() * trans.getModel();
+	//glUniformMatrix4fv(_unis[_UNI_TRANSFORM], 1, GL_FALSE, &model[0][0]);
+	glm::mat4 MVP = trans->GetMVP(cam);
+	
+	glUniformMatrix4fv(_unis[0], 1, GL_FALSE, &MVP[0][0]);
 }
 
 void Shader::Bind(){

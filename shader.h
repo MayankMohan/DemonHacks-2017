@@ -12,7 +12,7 @@ class Shader{
 		Shader(const std::string& fileName);
 		~Shader();
 		
-		void Update(const Transform &trans, const Camera &cam);
+		void Update(const Transform *trans, const Camera &cam);
 		
 		void Bind();
 		GLuint GenShader(const std::string& source, GLenum shaderType);
@@ -26,8 +26,8 @@ class Shader{
 		
 		enum{
 			_UNI_TRANSFORM,
-			
+			_UNI_COLOR,
 			_NUM_UNI
 		};
-		GLuint _unis[_NUM_SHADERS];
+		GLuint _unis[_NUM_UNI];
 };

@@ -2,20 +2,21 @@
 # include <cstdio>
 # include "entities.h"
 
-
+void Entity::draw(){
+	mesh->Draw();
+}
 
 //triggers when collsion occurs which is not used here????
-Player::Player(){
-  lives = 3;
-  score = 0;
+Player::Player(Mesh* m){
+	mesh = m;
+	lives = 3;
+	score = 0;
   
 }
-Enemy::Enemy(){
-  hp=5;
-  //this one could be removed
-  spawn_count=25;
 
-
+Enemy::Enemy(Mesh* m){
+	mesh = m;
+	hp=5;
 }
 void Player::addScore(int i){
 score+=i;
@@ -32,13 +33,6 @@ hp-=1;
 bool Enemy::alive(){
 if (hp<=0){
   return false;
-}
-return true;
-};
-
-bool Player::alive(){
-if (lives<=0){
-return false;
 }
 return true;
 };

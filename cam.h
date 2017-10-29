@@ -11,7 +11,7 @@ class Camera{
 	public:
 		Camera(const glm::vec3 &pos, float fov, float aspect, float zmin, float zmax){
 			_pos = pos;
-			_fwd = glm::vec3(0,0,1);
+			_fwd = glm::vec3(0,0,-1);
 			_up = glm::vec3(0,1,0);
 			_perspective = glm::perspective(fov, aspect, zmin, zmax);
 		}

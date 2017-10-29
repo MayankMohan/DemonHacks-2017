@@ -3,6 +3,8 @@
 #include <glm/glm.hpp>
 #include <glm/gtx/transform.hpp>
 
+#include "cam.h"
+
 class Transform{
 	private:
 		glm::vec3 _pos;
@@ -32,10 +34,17 @@ class Transform{
 			glm::mat4 xrotMat = glm::rotate(_rot.x, glm::vec3(1,0,0));
 			glm::mat4 yrotMat = glm::rotate(_rot.y, glm::vec3(0,1,0));
 			glm::mat4 zrotMat = glm::rotate(_rot.z, glm::vec3(0,0,1));
-			glm::mat4 scaleMat = glm::translate(_scale);
-			
+			glm::mat4 scaleMat = glm::scale(_scale);
 			glm::mat4 rotMat = zrotMat * yrotMat * xrotMat;
 			
 			return posMat * rotMat * scaleMat;
+		}
+		
+		inline glm::mat4 GetMVP(const Camera cam) const{
+			glm::mat4 VP = cam.getViewProjection();
+			glm::mat4 M = getModel();
+			
+			return VP * M;
+			
 		}
 };

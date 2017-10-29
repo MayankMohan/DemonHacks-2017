@@ -40,8 +40,8 @@ int parseOBJ(const char* f, Vertex** verts){
 			
 			//if(matches == 4){
 				for(int i = 0; i < matches; i++){
-					printf("%d ", vertexIndex[i]);
-					printf("%d ", vertexIndex[(i + 1) % matches]);
+					//printf("%d ", vertexIndex[i]);
+					//printf("%d ", vertexIndex[(i + 1) % matches]);
 					//if(mappings.count(glm::vec2(vertexIndex[i], vertexIndex[(i + 1) % matches])) == 0){
 					vertexIndices.push_back(vertexIndex[i]);
 					vertexIndices.push_back(vertexIndex[(i + 1) % matches]);
@@ -50,16 +50,16 @@ int parseOBJ(const char* f, Vertex** verts){
 					//}
 				
 				}
-				printf("\n");
+				//printf("\n");
 			//}
 		}
 	}
-	
 	*verts = new Vertex[vertexIndices.size()];
 	for(unsigned int i = 0; i < vertexIndices.size(); i++){
 		(*verts)[i] = temp_vertices[vertexIndices[i] - 1];
-		printf("%f %f %f\n",temp_vertices[vertexIndices[i] - 1].x,temp_vertices[vertexIndices[i] - 1].y,temp_vertices[vertexIndices[i] - 1].z);
 	}
+		//printf("%f %f %f\n",temp_vertices[vertexIndices[i] - 1].x,temp_vertices[vertexIndices[i] - 1].y,temp_vertices[vertexIndices[i] - 1].z);
+	//getchar();
 	
 	fclose(file);
 	return vertexIndices.size();
